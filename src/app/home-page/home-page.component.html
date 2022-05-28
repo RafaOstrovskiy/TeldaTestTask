@@ -1,1 +1,14 @@
-<p>home-page works!</p>
+<div class="current-user__container">
+  <h2 class="current-user__title">Info about current user</h2>
+  <div class="current-user__info">
+    <p>Email: </p>
+    <p>First name: </p>
+    <p>Last name: </p>
+  </div>
+</div>
+<div class="users-list__container">
+  <h2 class="users-list__title">All users list</h2>
+  <button mat-raised-button (click)="createUser()">Add user</button>
+  <button mat-raised-button (click)="logObs()">log</button>
+  <button mat-raised-button (click)="newLog()">new Log</button>
+</div>

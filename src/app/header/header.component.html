@@ -1,1 +1,10 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <span>TeldaProgTest</span>
+  <span class="spacer"></span>
+  <div>
+    <button mat-stroked-button class="signInButton" routerLink="/auth">Sign in</button>
+  </div>
+  <div *ngIf="false">
+    <button mat-stroked-button class="signInButton" >Log out</button>
+  </div>
+</mat-toolbar>

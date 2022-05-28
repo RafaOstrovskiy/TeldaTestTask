@@ -1,0 +1,11 @@
+mat-toolbar{
+  display: flex;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.mat-stroked-button {
+  text-transform: uppercase;
+  font-size: medium;
+  border-color: #ffffff;
+}
