@@ -1,10 +1,12 @@
 <mat-toolbar color="primary">
-  <span>TeldaProgTest</span>
+  <a routerLink="/home" class="logo">
+    <span>TeldaProgTest</span>
+  </a>
   <span class="spacer"></span>
-  <div>
+  <div *ngIf="!currentUser">
     <button mat-stroked-button class="signInButton" routerLink="/auth">Sign in</button>
   </div>
-  <div *ngIf="false">
-    <button mat-stroked-button class="signInButton" >Log out</button>
+  <div *ngIf="currentUser">
+    <button mat-stroked-button class="signInButton" (click)="logOut()">Log out</button>
   </div>
 </mat-toolbar>

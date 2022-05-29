@@ -16,5 +16,5 @@
     <mat-error *ngIf="password.touched && password.hasError('required')">Password is required</mat-error>
   </mat-form-field>
   <mat-checkbox color="primary" formControlName="toRemember">Remember me!</mat-checkbox>
-  <button mat-flat-button type="submit" class="modalWindowButton" color="primary" [disabled]="!form.valid">SIGN IN</button>
+  <button mat-flat-button type="submit" class="signInButton" color="primary" [disabled]="!form.valid">SIGN IN</button>
 </form>

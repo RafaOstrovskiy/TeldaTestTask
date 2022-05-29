@@ -1,14 +1,33 @@
-<div class="current-user__container">
+<div class="current-user__container" *ngIf="currentUser">
   <h2 class="current-user__title">Info about current user</h2>
   <div class="current-user__info">
-    <p>Email: </p>
-    <p>First name: </p>
-    <p>Last name: </p>
+    <p>Email: {{currentUser.email}}</p>
+    <p>First name: {{currentUser.firstName}}</p>
+    <p>Last name: {{currentUser.lastName}}</p>
   </div>
 </div>
-<div class="users-list__container">
+<div *ngIf="!currentUser">
+  <h2 class="current-user__title">No current user</h2>
+</div>
+
+<div class="users-list__container" *ngIf="listOfUsers">
   <h2 class="users-list__title">All users list</h2>
-  <button mat-raised-button (click)="createUser()">Add user</button>
-  <button mat-raised-button (click)="logObs()">log</button>
-  <button mat-raised-button (click)="newLog()">new Log</button>
+
+  <table mat-table [dataSource]="listOfUsers" class="users-table">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+      <th mat-header-cell *matHeaderCellDef>
+        {{column.header}}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{column.cell(row)}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
+<div *ngIf="!listOfUsers">
+  <h2 class="current-user__title">No registered users</h2>
 </div>

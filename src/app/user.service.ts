@@ -23,8 +23,11 @@ export class UserService {
     }
   }
 
-  getUser() {
+  getUserSubject() {
     return this.userSubject;
+  }
+  getListOfUsersSubject() {
+    return this.listOfUsersSubject
   }
 
   getListOfUsers(): IUser[] {
