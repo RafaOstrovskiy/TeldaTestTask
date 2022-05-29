@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomePageComponent} from "./home-page/home-page.component";
-import {AuthorizationPageComponent} from "./authorization-page/authorization-page.component";
+import {HomePageComponent} from "./pages/home-page/home-page.component";
+import {AuthorizationPageComponent} from "./pages/authorization-page/authorization-page.component";
 import {AuthenticationGuard} from "./helpers/authentication-guard.service";
 
 const routes: Routes = [

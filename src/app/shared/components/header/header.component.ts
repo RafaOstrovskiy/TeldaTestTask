@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {IUser} from "../types/user.interface";
+import {IUser} from "../../../types/user.interface";
 import {Subscription} from "rxjs";
-import {UserService} from "../user.service";
+import {UserService} from "../../../core/services/user.service";
 
 @Component({
   selector: 'app-header',

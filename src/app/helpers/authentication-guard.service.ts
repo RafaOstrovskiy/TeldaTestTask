@@ -1,6 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import {UserService} from "../user.service";
+import {UserService} from "../core/services/user.service";
 import {IUser} from "../types/user.interface";
 import {Subscription} from "rxjs";
 

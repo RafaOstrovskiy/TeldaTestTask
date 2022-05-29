@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserService} from "../user.service";
+import {UserService} from "../../../../core/services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
