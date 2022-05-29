@@ -10,6 +10,15 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AuthorizationPageComponent } from './authorization-page/authorization-page.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
+import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
+import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -17,15 +26,24 @@ import {MatButtonModule} from "@angular/material/button";
     HeaderComponent,
     FooterComponent,
     HomePageComponent,
-    AuthorizationPageComponent
+    AuthorizationPageComponent,
+    SignInFormComponent,
+    SignUpFormComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

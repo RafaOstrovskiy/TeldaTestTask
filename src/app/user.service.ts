@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, observable, Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from "rxjs";
 import {IUser} from "./types/user.interface";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UserService {
   private  userSubject: BehaviorSubject<IUser | null>;
   private  listOfUsersSubject: BehaviorSubject<IUser[]>;
 
-  constructor() {
+  constructor(private router: Router) {
     this.userSubject = new BehaviorSubject<IUser | null>(this.currentUser);
     this.listOfUsersSubject = new BehaviorSubject<IUser[]>(this.getListOfUsers());
   }
@@ -32,7 +33,7 @@ export class UserService {
 
   getUserByEmail(email: string) {
     let foundUser
-    const listOfUsers: IUser[] = this.getListOfUsers()
+    const listOfUsers: IUser[] = this.getListOfUsers() || []
     for (let user of listOfUsers) {
       if (user.email === email) {
         foundUser = user
@@ -42,7 +43,7 @@ export class UserService {
   }
 
   createUser(user: IUser):Observable<any> {
-    const obs = new Observable((sub) => {
+    return new Observable((sub) => {
       if (this.getUserByEmail(user.email)) {
         sub.error('User already exist')
       } else {
@@ -52,7 +53,30 @@ export class UserService {
         sub.next(user)
       }
     })
-    return obs
+  }
+
+  loginUser(email: string, password: string, toRemember: boolean):Observable<any> {
+    return new Observable((sub) => {
+      const user = this.getUserByEmail(email)
+      if (!user || user.password !== password) {
+        sub.error('Incorrect email or password')
+      } else {
+
+        toRemember
+          ? localStorage.setItem('currentUser', JSON.stringify(user))
+          : sessionStorage.setItem('currentUser', JSON.stringify(user))
+
+        this.userSubject.next(user)
+        sub.next(user)
+      }
+    })
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
+    this.userSubject.next(null);
+    this.router.navigate(['home']);
   }
 
   updateListOfUsers(usersList: IUser[]) {

@@ -25,26 +25,4 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  createUser() {
-    this.userService.createUser(user)
-    console.log(this.userService.getUserByEmail('Bul@sss.com'));
-  }
-
-  logObs(): Observable<any> {
-    const obs = new Observable((sub) => {
-      sub.next(1);
-
-      setTimeout(() => {
-        sub.next(3);
-        sub.complete();
-      }, 500);
-    });
-
-    return obs
-  }
-
-  newLog() {
-    let obs = this.logObs()
-    obs.subscribe((vl) => console.log(vl));
-  }
 }

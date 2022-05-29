@@ -1,0 +1,21 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputsContainer {
+  width: 90%;
+}
+
+.modalWindowButton {
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+mat-checkbox {
+  margin: 0 2rem;
+  align-self: start;
+}
